@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/school/coda/tp/jdbc/rpg/RpgCharacterDao.java" value="997a8442-3ade-4dfb-8600-2651c54ae1d5" />
+    <file url="file://$PROJECT_DIR$/src/main/java/school/coda/tp/jdbc/test/TestJdbc.java" value="997a8442-3ade-4dfb-8600-2651c54ae1d5" />
+  </component>
+</project>
