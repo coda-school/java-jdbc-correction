@@ -1,26 +1,27 @@
 package school.coda.tp.jdbc.test;
 
-import school.coda.tp.jdbc.sql.CharacterJob;
+import school.coda.tp.jdbc.shared.TechnicalException;
+import school.coda.tp.jdbc.sql.DatabaseMigration;
 import school.coda.tp.jdbc.sql.RpgCharacterData;
-import tp07.correction.shared.TechnicalException;
+import school.coda.tp.jdbc.sql.RpgCharacters;
+import school.coda.tp.jdbc.sql.SqliteRpgCharacters;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TestJdbc {
     static void main() {
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:test.db")) {
 
-            createRpgCharacterTable(connection);
+            DatabaseMigration.createRpgCharacterTable(connection);
+            RpgCharacters rpgCharacters = new SqliteRpgCharacters(connection);
 
-            List<RpgCharacterData> rpgCharacterData = getRpgCharacterData(connection);
 
+            List<RpgCharacterData> rpgCharacterData = rpgCharacters.all();
             System.out.println(rpgCharacterData);
+
 
         } catch (SQLException e) {
             System.err.println(
@@ -30,55 +31,8 @@ public class TestJdbc {
                     "Une erreur technique inattendue est survenue : " + e.getMessage());
         }
     }
-
-    private static List<RpgCharacterData> getRpgCharacterData(Connection connection) {
-        List<RpgCharacterData> rpgCharacterData = new ArrayList<>();
-
-        try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("""
-                     SELECT id, name, hp, def, money, atk, heal, job
-                     FROM rpg_character
-                     """)) {
-            while (resultSet.next()) {
-
-                rpgCharacterData.add(new RpgCharacterData(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        resultSet.getInt("hp"),
-                        resultSet.getInt("def"),
-                        resultSet.getInt("money"),
-                        resultSet.getInt("atk"),
-                        resultSet.getInt("heal"),
-                        CharacterJob.fromName(resultSet.getString("job"))
-                ));
-
-            }
-        } catch (SQLException e) {
-            System.err.println("Erreur lors récupération de la liste de personnages : " + e.getMessage());
-        }
-        return rpgCharacterData;
-    }
-
-    private static void createRpgCharacterTable(Connection connection) {
-        try (Statement statement = connection.createStatement()) {
-            statement.execute("""
-                    CREATE TABLE IF NOT EXISTS rpg_character
-                    (
-                        id    integer      not null
-                            constraint rpg_character_pk
-                                primary key autoincrement,
-                        name  varchar(255) not null,
-                        hp    integer      not null,
-                        def   integer      not null,
-                        money integer      not null,
-                        atk   integer,
-                        heal  integer,
-                        job   varchar(20)
-                    );
-                    """);
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de création de la table rpg_character : " + e.getMessage());
-        }
-    }
 }
+
+
+
 
