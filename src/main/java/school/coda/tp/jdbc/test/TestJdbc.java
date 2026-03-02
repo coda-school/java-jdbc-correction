@@ -15,10 +15,12 @@ public class TestJdbc {
             RpgCharacterDao.createRpgCharacterTable(connection);
 
             List<RpgCharacterData> rpgCharacterData = RpgCharacterDao.getRpgCharacterData(connection);
+
             System.out.println(rpgCharacterData);
-        } catch (
-                SQLException e) {
-            System.err.println("Erreur lors de la connexion à la base de données : " + e.getMessage());
+
+        } catch (SQLException e) {
+            System.err.println(
+                    "Erreur lors de la connexion à la base de données : " + e.getMessage());
         }
     }
 
