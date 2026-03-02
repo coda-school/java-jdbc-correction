@@ -27,7 +27,7 @@ public class SqliteRpgCharacters implements RpgCharacters {
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("""
-                     SELEdCT id, name, hp, def, money, atk, heal, job
+                     SELECT id, name, hp, def, money, atk, heal, job
                      FROM rpg_character
                      """)) {
             List<RpgCharacterData> rpgCharacterData = new ArrayList<>();
