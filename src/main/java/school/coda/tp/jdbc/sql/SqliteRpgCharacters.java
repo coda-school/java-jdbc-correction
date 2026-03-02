@@ -97,17 +97,23 @@ public class SqliteRpgCharacters implements RpgCharacters {
 
     @Override
     public void delete() {
+        // prepared statement
+        // execute
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
     @Override
     public void update(RpgCharacterData rpgCharacterData) {
+        // prepared statement
+        // execute
         throw new UnsupportedOperationException("Not yet implemented");
 
     }
 
     @Override
     public void create(RpgCharacterData rpgCharacterData) {
+        // prepared statement
+        // execute
         throw new UnsupportedOperationException("Not yet implemented");
 
     }
