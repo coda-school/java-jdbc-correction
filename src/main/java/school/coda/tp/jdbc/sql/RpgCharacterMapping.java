@@ -1,4 +1,4 @@
-package school.coda.tp.jdbc.rpg;
+package school.coda.tp.jdbc.sql;
 
 import school.coda.rpg.character.job.Mage;
 import school.coda.rpg.character.job.Paladin;

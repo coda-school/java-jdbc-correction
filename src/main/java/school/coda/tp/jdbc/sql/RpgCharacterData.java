@@ -1,4 +1,4 @@
-package school.coda.tp.jdbc.rpg;
+package school.coda.tp.jdbc.sql;
 
 public record RpgCharacterData(
         int id,

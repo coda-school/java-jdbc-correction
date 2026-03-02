@@ -1,4 +1,4 @@
-package school.coda.tp.jdbc.rpg;
+package school.coda.tp.jdbc.sql;
 
 public enum CharacterJob {
     WARRIOR("Warrior"),
