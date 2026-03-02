@@ -12,12 +12,11 @@ public class RpgCharacterDao {
     public static List<RpgCharacterData> getRpgCharacterData(Connection connection) {
         List<RpgCharacterData> rpgCharacterData = new ArrayList<>();
 
-        String query = """
-                SELECT id, name, hp, def, money, atk, heal, job
-                FROM rpg_character
-                """;
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
+             ResultSet resultSet = statement.executeQuery("""
+                     SELECT id, name, hp, def, money, atk, heal, job
+                     FROM rpg_character
+                     """)) {
             while (resultSet.next()) {
 
                 rpgCharacterData.add(new RpgCharacterData(
@@ -40,7 +39,7 @@ public class RpgCharacterDao {
 
     public static void createRpgCharacterTable(Connection connection) {
         try (Statement statement = connection.createStatement()) {
-            String query = """
+            statement.execute("""
                     CREATE TABLE IF NOT EXISTS rpg_character
                     (
                         id    integer      not null
@@ -54,10 +53,7 @@ public class RpgCharacterDao {
                         heal  integer,
                         job   varchar(20)
                     );
-                    
-                    
-                    """;
-            statement.execute(query);
+                    """);
         } catch (SQLException e) {
             System.err.println("Erreur lors de création de la table rpg_character : " + e.getMessage());
         }
