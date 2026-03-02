@@ -2,6 +2,7 @@ package school.coda.tp.jdbc.test;
 
 import school.coda.tp.jdbc.sql.CharacterJob;
 import school.coda.tp.jdbc.sql.RpgCharacterData;
+import tp07.correction.shared.TechnicalException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,6 +25,9 @@ public class TestJdbc {
         } catch (SQLException e) {
             System.err.println(
                     "Erreur lors de la connexion à la base de données : " + e.getMessage());
+        } catch (TechnicalException e) {
+            System.err.println(
+                    "Une erreur technique inattendue est survenue : " + e.getMessage());
         }
     }
 

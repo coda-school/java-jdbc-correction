@@ -5,6 +5,9 @@ import java.util.Optional;
 
 public interface RpgCharacters {
 
+    /**
+     * Can throw TechnicalException
+     */
     List<RpgCharacterData> all();
 
     List<RpgCharacterData> allByJob(CharacterJob job);
