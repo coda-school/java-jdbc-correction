@@ -366,7 +366,7 @@ Ajouter la dépendance `rpg-lib` il s'agit du corrigé du TP RPG déployé sur u
 
 Pour référence, le code source est disponible sur https://github.com/coda-school/java-mvn-multi-module
 
-### 3.3 Instancier des personnages à partir de la base de données
+### 3.3 `asRpgCharacter`
 
 Écrire du code de "mapping" qui permet d'instancier les bons types de personnages à partir de `RpgCharacterData`.
 
@@ -421,7 +421,7 @@ RpgCharacter elune = data.asRpgCharacter();
  ```
 
 
-### 3.4 Healers
+### 3.4 `asHealer()`
 
 Écrire du code de "mapping" qui permet d'instancier un `Optional<Healer>` à partir de `RpgCharacterData`.
 
@@ -503,7 +503,6 @@ Ex. devrait instancier un `Optional` vide
 Optional<Attacker> optionalAttacker = data.asAttacker();
 // Optional.isPresent() --> false
 ```
-
 
 <!--
 TODO : 
