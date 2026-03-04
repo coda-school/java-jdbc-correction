@@ -17,7 +17,7 @@ public class InMemoryMain {
 
             // Démarrer le jeu
             Jeu jeu = new Jeu(rpgCharacters, Jeu.Flag.GENERATE_SAMPLE_CHARACTERS);
-            jeu.jouer();
+            jeu.demoExo2();
 
         } catch (TechnicalException e) {
             System.err.println("Une erreur technique inattendue est survenue : " + e.getMessage());

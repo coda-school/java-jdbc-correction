@@ -1,5 +1,6 @@
 package school.coda.tp.rpg.game;
 
+import school.coda.rpg.character.job.RpgCharacter;
 import school.coda.tp.rpg.persistance.RpgCharacters;
 import school.coda.tp.rpg.persistance.model.CharacterJob;
 import school.coda.tp.rpg.persistance.model.RpgCharacterData;
@@ -30,7 +31,8 @@ public class Jeu {
         }
     }
 
-    public void jouer() {
+    /// Une démo pour montrer le fonctionnement de la couche de persistance
+    public void demoExo2() {
 
         // Affiche la liste des personnages en persistance
         List<RpgCharacterData> all = rpgCharacters.all();
@@ -61,45 +63,52 @@ public class Jeu {
 
         List<RpgCharacterData> allPaladins = rpgCharacters.allByJob(CharacterJob.PALADIN);
         System.out.println();
-        System.out.println("All paladins : "+allPaladins);
+        System.out.println("All paladins : " + allPaladins);
         System.out.println();
 
         List<RpgCharacterData> allMages = rpgCharacters.allByJob(CharacterJob.MAGE);
         System.out.println();
-        System.out.println("All mages : "+allMages);
+        System.out.println("All mages : " + allMages);
         System.out.println();
 
         List<RpgCharacterData> allWarriors = rpgCharacters.allByJob(CharacterJob.WARRIOR);
         System.out.println();
-        System.out.println("All warriors : "+allWarriors);
+        System.out.println("All warriors : " + allWarriors);
         System.out.println();
 
 
         // Supprimer un personnage
-        rpgCharacters.create(new RpgCharacterData("Deuxfleurs le touriste",10,2,5000,null,null,null));
+        rpgCharacters.create(new RpgCharacterData("Deuxfleurs le touriste", 10, 2, 5000, null, null, null));
+    }
+
+    /// Utilisation de la persistance pour charger des vrais personnages de jeu
+    public void startGameExo3() {
+
+
+        var data = new RpgCharacterData("Villageois", 10 , 0  , 12   , CharacterJob.RPG_CHARACTER, null   , null);
+        RpgCharacter villageois = data.asRpgCharacter();
+        List<RpgCharacter> list = rpgCharacters.all().stream().map(RpgCharacterData::asRpgCharacter).toList();
+
+
     }
 
     /// Création de personnages pré-tirés
     private void generateSampleCharacters() {
         rpgCharacters.create(new RpgCharacterData(
                 "Rincevent", 50, 2,
-                20, 2, null,
-                CharacterJob.MAGE
+                20, CharacterJob.MAGE, 2, null
         ));
         rpgCharacters.create(new RpgCharacterData(
                 "Ridculle", 70, 2,
-                200, 5, null,
-                CharacterJob.MAGE
+                200, CharacterJob.MAGE, 5, null
         ));
         rpgCharacters.create(new RpgCharacterData(
                 "Cohen le barbare", 150, 7,
-                120, 10, null,
-                CharacterJob.WARRIOR
+                120, CharacterJob.WARRIOR, 10, null
         ));
         rpgCharacters.create(new RpgCharacterData(
                 "Lothar", 120, 5,
-                80, 7, 10,
-                CharacterJob.PALADIN
+                80, CharacterJob.PALADIN, 7, 10
         ));
     }
 

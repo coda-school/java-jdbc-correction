@@ -22,7 +22,7 @@ public class SqliteMain {
 
             // Démarrer le jeu
             Jeu jeu = new Jeu(rpgCharacters);
-            jeu.jouer();
+            jeu.demoExo2();
 
         } catch (SQLException e) {
             System.err.println(

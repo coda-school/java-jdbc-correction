@@ -194,9 +194,8 @@ public class SqliteRpgCharacters implements RpgCharacters {
                 resultSet.getInt("hp"),
                 resultSet.getInt("def"),
                 resultSet.getInt("money"),
-                resultSet.getInt("atk"),
-                resultSet.getInt("heal"),
-                CharacterJob.fromName(resultSet.getString("job"))
+                CharacterJob.fromName(resultSet.getString("job")), resultSet.getInt("atk"),
+                resultSet.getInt("heal")
         );
     }
 }
