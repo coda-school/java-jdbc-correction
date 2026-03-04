@@ -69,17 +69,5 @@ public record RpgCharacterData(Integer id,
     }
 
 
-    public RpgCharacter asRpgCharacter() {
-        throw new UnsupportedOperationException("RpgCharacterData::asRpgCharacter() n'est pas encore implémenté");
-    }
-
-
-    public Optional<Healer> asHealer() {
-        throw new UnsupportedOperationException("RpgCharacterData::asHealer() n'est pas encore implémenté");
-    }
-
-    public Optional<Attacker> asAttacker() {
-        throw new UnsupportedOperationException("RpgCharacterData::asAttacker() n'est pas encore implémenté");
-    }
 
 }

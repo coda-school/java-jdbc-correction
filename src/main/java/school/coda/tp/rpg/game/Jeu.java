@@ -83,13 +83,7 @@ public class Jeu {
 
     /// Utilisation de la persistance pour charger des vrais personnages de jeu
     public void startGameExo3() {
-
-
-        var data = new RpgCharacterData("Villageois", 10 , 0  , 12   , CharacterJob.RPG_CHARACTER, null   , null);
-        RpgCharacter villageois = data.asRpgCharacter();
-        List<RpgCharacter> list = rpgCharacters.all().stream().map(RpgCharacterData::asRpgCharacter).toList();
-
-
+        // TODO : exo 3
     }
 
     /// Création de personnages pré-tirés
