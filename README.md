@@ -357,11 +357,11 @@ Ajouter les lignes suivantes pour configurer le dépôt nexus du cours de java.
 Ajouter la dépendance `rpg-lib` il s'agit du corrigé du TP RPG déployé sur un repository maven en tant que bibliothèque.
 
 ```xml
-    <dependency>
-        <groupId>school.coda.rpg</groupId>
-        <artifactId>rpg-lib</artifactId>
-        <version>1.1</version>
-    </dependency>
+  <dependency>
+      <groupId>school.coda.rpg</groupId>
+      <artifactId>rpg-lib</artifactId>
+      <version>1.2</version>
+  </dependency>
 ```
 
 Pour référence, le code source est disponible sur https://github.com/coda-school/java-mvn-multi-module
