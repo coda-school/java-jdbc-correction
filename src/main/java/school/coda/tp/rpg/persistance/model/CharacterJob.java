@@ -1,4 +1,4 @@
-package school.coda.tp.jdbc.sql;
+package school.coda.tp.rpg.persistance.model;
 
 import java.util.Objects;
 
@@ -11,6 +11,7 @@ public enum CharacterJob {
     TOURIST("Tourist"),
     RPG_CHARACTER(null);
 
+
     public final String name;
 
     CharacterJob(String name) {
@@ -18,6 +19,7 @@ public enum CharacterJob {
     }
 
     public static CharacterJob fromName(String name) {
+
         for (CharacterJob characterJob : values()) {
             if (Objects.equals(characterJob.name, name)) {
                 return characterJob;

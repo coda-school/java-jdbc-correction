@@ -1,10 +1,12 @@
-package school.coda.tp.jdbc.sql;
+package school.coda.tp.rpg.persistance.sqlite;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DatabaseMigration {
+/// Utilitaires pour créer la base de données SQlite
+public class SqliteDatabaseMigration {
+
     public static void createRpgCharacterTable(Connection connection) {
         try (Statement statement = connection.createStatement()) {
             statement.execute("""

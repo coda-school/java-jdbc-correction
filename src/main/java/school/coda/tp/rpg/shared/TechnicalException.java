@@ -1,12 +1,12 @@
-package tp07.correction.shared;
+package school.coda.tp.rpg.shared;
 
 public class TechnicalException extends RuntimeException {
-    public TechnicalException(ErrorCode errorCode, Throwable cause) {
+    public TechnicalException(TechnicalException.ErrorCode errorCode, Throwable cause) {
         super(errorCode.code, cause);
     }
 
-    public TechnicalException(Throwable cause) {
-        super(cause);
+    public TechnicalException(String message) {
+        super(message);
     }
 
     public enum ErrorCode {
